@@ -1,7 +1,7 @@
 /*
  * dev/App.js
- * Author: H.Alper Tuna <halpertuna@gmail.com>
- * Date: 21.08.2016
+ * Author: kesav p
+ * Date: 24.09.2019
  */
 
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */

@@ -1,7 +1,7 @@
 /**
  * dev.conf.js
- * Author: H.Alper Tuna <halpertuna@gmail.com>
- * Date: 18.08.2016
+ * Author: kesav p
+ * Date: 24/09/2019
  */
 
 const config = require('./base.conf');
@@ -13,6 +13,7 @@ module.exports = Object.assign(config, {
   devtool: 'eval-source-map',
   devServer: {
     contentBase: 'dev',
+    port : 9090,
   },
   module: {
     loaders: [
