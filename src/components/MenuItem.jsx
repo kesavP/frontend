@@ -7,9 +7,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Container from '../containers/Container';
+import LeftSideMenuContainer from '../containers/LeftMenuContainer';
 
-const Item = ({
+const MenuItem = ({
   id,
   icon,
   label,
@@ -28,12 +28,12 @@ const Item = ({
   LinkComponent,
 }) => (
   <li
-    className={classnames(
-      classStore.classItem,
-      active && classStore.classItemActive,
-      hasActiveChild && classStore.classItemHasActiveChild,
-      (hasSubMenu && subMenuVisibility) && classStore.classItemHasVisibleChild,
-    )}
+  className={classnames(
+    classStore.classItem,
+    active && classStore.classItemActive,
+    hasActiveChild && classStore.classItemHasActiveChild,
+    (hasSubMenu && subMenuVisibility) && classStore.classItemHasVisibleChild,
+  )}
   >
     <LinkComponent
       className={classStore.classLink}
@@ -62,7 +62,7 @@ const Item = ({
         )}
       />}
     </LinkComponent>
-    {hasSubMenu && <Container
+    {hasSubMenu && <LeftSideMenuContainer
       itemId={id}
       visible={subMenuVisibility}
       reduxStoreName={reduxStoreName}
@@ -71,7 +71,7 @@ const Item = ({
   </li>
 );
 
-Item.defaultProps = {
+MenuItem.defaultProps = {
   icon: '',
   label: '',
   to: null,
@@ -79,7 +79,7 @@ Item.defaultProps = {
   toggleSubMenu: null,
 };
 
-Item.propTypes = {
+MenuItem.propTypes = {
   id: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
@@ -102,7 +102,7 @@ Item.propTypes = {
   reduxUid: PropTypes.number.isRequired,
 };
 
-Item.contextTypes = {
+MenuItem.contextTypes = {
   classStore: PropTypes.object.isRequired,
   LinkComponent: PropTypes.oneOfType([
     PropTypes.element,
@@ -110,4 +110,4 @@ Item.contextTypes = {
   ]).isRequired,
 };
 
-export default Item;
+export default MenuItem;

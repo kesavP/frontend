@@ -1,15 +1,15 @@
 /**
  * src/containers/Item.js
- * Author: H.Alper Tuna <halpertuna@gmail.com>
- * Date: 16.09.2016
+ * Author: kesav chaitanya p
+ * Date: 29.09.2019
  */
 
 import { connect } from 'react-redux';
 import { changeSubMenuVisibility, changeActiveLinkId } from '../actions/content';
 import { emitSelected } from '../actions/emitters';
-import Item from '../components/Item';
+import MenuItem from '../components/MenuItem';
 
-export const mapDispatchToProps = (dispatch, ownProps) => ({
+export const mapDispatchToProps = (dispatch, ownProps) => console.log(ownProps) || ({
   toggleSubMenu(e) {
     if (!ownProps.hasSubMenu) return;
     e.preventDefault();
@@ -31,4 +31,4 @@ export const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
   null,
   mapDispatchToProps,
-)(Item);
+)(MenuItem);

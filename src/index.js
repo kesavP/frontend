@@ -4,6 +4,6 @@
  * Date: 16.09.2016
  */
 
-import MetisMenu from './components/MetisMenu';
+import Template from './components/Template';
 
-export default MetisMenu;
+export default Template;
