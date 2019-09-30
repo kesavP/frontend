@@ -124,13 +124,15 @@ class Template extends React.Component {
   }
   render() {
     return (
+      <React.Fragment>
       <LeftSideMenu
       className="menu"
       content={this.state.menu}
       store ={this.store}
       className="menu"
       classNameItemHasVisibleChild="open"
-      />
+      ></LeftSideMenu>
+      </React.Fragment>
     );
   }
 }

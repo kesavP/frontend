@@ -8,8 +8,10 @@
 /* eslint-env browser */
 
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import Template from '../src';
+import Test from '../src/components/Test';
+import Users from '../src/components/Users';
 import { store, history} from '../src/store';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
@@ -18,24 +20,15 @@ import { Route, Switch } from 'react-router-dom';
 // Embeds styles
 import '../less/standart.less';
 
-
-class App extends React.Component {
-  constructor() {
-    super();
-
-
-  }
-  render() {
-    return (
-    <Provider store={store}>
+ReactDOM.render((
+  <Provider store={store}>
     <ConnectedRouter history={history}>
-     <Switch>
-       <Route path="/" component={Template} />
-     </Switch>
-   </ConnectedRouter>
-    </Provider>
-    );
-  }
-}
+      <Switch>
+        <Route path="/menu" component={Template} />
+        <Route path="/test" component={Test}/>
+        <Route path="/Users" component={Users}/>
+      </Switch>
+    </ConnectedRouter>
+  </Provider>
 
-render(<App />, document.getElementById('root'));
+), document.getElementById('root'));

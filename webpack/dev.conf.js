@@ -14,6 +14,7 @@ module.exports = Object.assign(config, {
   devServer: {
     contentBase: 'dev',
     port : 9090,
+    historyApiFallback: true,
   },
   module: {
     loaders: [

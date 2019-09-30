@@ -44,7 +44,7 @@ class LeftSideMenu extends React.Component {
          { visible: !props.noBuiltInClassNames },
          props.classNameContainerVisible,
       ),
-      // to add line height and icon
+      //add line height and icon
       classItem: classnames(
          { 'metismenu-item': !props.noBuiltInClassNames },
          props.classNameItem,
@@ -53,6 +53,15 @@ class LeftSideMenu extends React.Component {
          { 'metismenu-link': !props.noBuiltInClassNames },
          props.classNameLink,
        ),
+       classLinkActive: classnames(
+        { active: !props.noBuiltInClassNames },
+        props.classNameLinkActive,
+      ),
+       //add indication of parent on click
+       classLinkHasActiveChild: classnames(
+        { 'has-active-child': !props.noBuiltInClassNames },
+        props.classNameLinkHasActiveChild,
+      ),
        // to show icon and allign
        classIcon: classnames(
          { 'metismenu-icon': !props.noBuiltInClassNames },
@@ -119,6 +128,9 @@ LeftSideMenu.defaultProps = {
   iconNameStateHidden: 'caret-left',
   classNameItemHasVisibleChild: null,
   iconNameStateVisible: 'caret-left rotate-minus-90',
+  classNameLinkActive: null,
+  classNameContainer: null,
+  classNameContainerVisible: null,
 }
 
 LeftSideMenu.propTypes = {
@@ -136,6 +148,12 @@ LeftSideMenu.propTypes = {
   iconNameStateHidden: PropTypes.string,
   classNameItemHasVisibleChild: PropTypes.string,
   iconNameStateVisible: PropTypes.string,
+  classNameLinkActive: PropTypes.string,
+  classNameContainer: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.string,
+  ]),
+  classNameContainerVisible: PropTypes.string,
 }
 
 LeftSideMenu.childContextTypes = {
