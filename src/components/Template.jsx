@@ -7,13 +7,6 @@
 /* eslint react/forbid-prop-types: [ "error", { forbid: [ "any", "array" ] } ] */
 
 import React from 'react';
-import {
-  updateContent,
-  changeActiveLinkId,
-  changeActiveLinkTo,
-  changeActiveLinkLabel,
-  changeActiveLinkFromLocation,
-} from '../actions/content';
 
 import LeftSideMenu from './LeftSideMenu';
 import { store, history} from '../store';

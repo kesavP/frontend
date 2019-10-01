@@ -11,7 +11,8 @@ import {
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
-  updateContent
+  updateContent,
+  changeActiveLinkLabel,
 } from '../actions/content';
 import LeftMenuContainer from '../containers/LeftMenuContainer';
 import Link from './DefaultLink';
@@ -93,6 +94,11 @@ updateContent(content,store) {
     store.dispatch(updateContent(this.reduxUid, content));
   }
 
+  changeActiveLinkLabel(value) {
+    console.log('in the change active link label ',value);
+    // this.store.dispatch(changeActiveLinkLabel(this.reduxUid, value));
+  }
+
   getChildContext() {
     console.log(this.classStore)
       return {
@@ -153,7 +159,6 @@ LeftSideMenu.propTypes = {
     PropTypes.func,
     PropTypes.string,
   ]),
-  classNameContainerVisible: PropTypes.string,
 }
 
 LeftSideMenu.childContextTypes = {

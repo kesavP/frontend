@@ -15,20 +15,21 @@ import Users from '../src/components/Users';
 import { store, history} from '../src/store';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 
 // Embeds styles
 import '../less/standart.less';
 
 ReactDOM.render((
   <Provider store={store}>
-    <ConnectedRouter history={history}>
+    <BrowserRouter>
+    <React.Fragment>
+    <Template/>
       <Switch>
-        <Route path="/menu" component={Template} />
-        <Route path="/test" component={Test}/>
-        <Route path="/Users" component={Users}/>
+        <Route exact path="/test" component={Test} />
       </Switch>
-    </ConnectedRouter>
+      </React.Fragment>
+    </BrowserRouter>
   </Provider>
 
 ), document.getElementById('root'));
