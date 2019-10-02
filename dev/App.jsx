@@ -7,29 +7,27 @@
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 /* eslint-env browser */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Template from '../src';
-import Test from '../src/components/Test';
-import Users from '../src/components/Users';
-import { store, history} from '../src/store';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import Template from "../src";
+import Test from "../src/components/Test";
+import Users from "../src/components/Users";
+import { store, history } from "../src/store";
+import { Provider } from "react-redux";
+import { ConnectedRouter } from "react-router-redux";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 // Embeds styles
-import '../less/standart.less';
+import "../less/standart.less";
 
-ReactDOM.render((
+ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-    <React.Fragment>
-    <Template/>
-      <Switch>
-        <Route exact path="/test" component={Test} />
-      </Switch>
+      <React.Fragment>
+        <Template />
       </React.Fragment>
     </BrowserRouter>
-  </Provider>
+  </Provider>,
 
-), document.getElementById('root'));
+  document.getElementById("root")
+);

@@ -4,43 +4,42 @@
  * Date: 29.09.2019
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import classnames from "classnames";
 
 class Test extends React.Component {
-
   render() {
-    return ( <
-      div className = "body" >
-      <
-      p >
-      Activate link with ref using < b > changeActiveLinkLabel < /b> method <
-      br / >
-      <
-      button onClick = {
-        () => {
-          this.menu.changeActiveLinkLabel('Test');
-        }
-      } >
-      Test <
-      /button> < /
-      p > <
-      /div>
-    )
+    console.log(this.context);
+    return (
+      <div className="body">
+        <p>
+          Activate link with ref using <b> changeActiveLinkLabel </b> method{" "}
+          <br />
+          <button
+            onClick={() => {
+              this.changeActiveLinkLabel("Test");
+            }}
+          >
+            Test{" "}
+          </button>{" "}
+        </p>{" "}
+      </div>
+    );
+  }
+
+  changeActiveLinkLabel(value) {
+    console.log("in the change active link label ", value);
+    this.store.dispatch(changeActiveLinkLabel(this.reduxUid, value));
   }
 }
 
-Test.defaultProps = {
-  itemId: null,
-  visible: false,
-};
+Test.defaultProps = {};
 
-Test.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.object).isRequired,
-  visible: PropTypes.bool,
-  reduxStoreName: PropTypes.string.isRequired,
-  reduxUid: PropTypes.number.isRequired,
+Test.propTypes = {};
+
+Test.contextTypes = {
+  store: PropTypes.object.isRequired,
 };
 
 export default Test;

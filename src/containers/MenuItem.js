@@ -9,7 +9,7 @@ import { changeSubMenuVisibility, changeActiveLinkId } from '../actions/content'
 import { emitSelected } from '../actions/emitters';
 import MenuItem from '../components/MenuItem';
 
-export const mapDispatchToProps = (dispatch, ownProps) => console.log(ownProps) || ({
+export const mapDispatchToProps = (dispatch, ownProps) => ({
   toggleSubMenu(e) {
     if (!ownProps.hasSubMenu) return;
     e.preventDefault();
