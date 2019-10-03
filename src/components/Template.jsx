@@ -116,8 +116,15 @@ class Template extends React.Component {
     this.oneRef = React.createRef();
 
     this.state = {
-      menu: menu1
+      menu: menu1,
+      labelButtonClick : false,
     };
+    this.doLabelChange = this.doLabelChange.bind(this);
+  }
+
+  doLabelChange(){
+    console.log('label change button pressed ');
+    this.setState({labelButtonClick : !this.state.labelButtonClick});
   }
 
   render() {
@@ -128,12 +135,13 @@ class Template extends React.Component {
             ref= {this.oneRef}
             className="menu"
             content={this.state.menu}
+            labelChange={this.state.labelButtonClick}
             classNameItemHasVisibleChild="open"
           ></LeftSideMenu>
         </React.Fragment>
         <BrowserRouter>
           <Switch>
-          <Route exact path="/test" component={ () => <Test lsMenuRef = {this.oneRef} />} />
+          <Route exact path="/test" component={ () => <Test parentLabelToogle = {this.doLabelChange} btntext = 'showTest'/>} />
             // <Route exact path="/test" component={ () => <Test lsMenuRef = {() => this.oneRef} />} />
           </Switch>
         </BrowserRouter>

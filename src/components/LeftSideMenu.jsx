@@ -8,7 +8,7 @@ import React from "react";
 import { render } from "react-dom";
 import PropTypes from "prop-types";
 import classnames from "classnames";
-import { updateContent } from "../actions/content";
+import { updateContent,changeActiveLinkLabel } from "../actions/content";
 import LeftMenuContainer from "../containers/LeftMenuContainer";
 
 let lastReduxUid = -1;
@@ -16,6 +16,7 @@ let reduxStoreService;
 class LeftSideMenu extends React.Component {
   constructor(props) {
     super(props);
+    console.log('lsmenu props',props)
     lastReduxUid += 1;
     this.reduxUid = lastReduxUid;
     this.reduxStoreName = props.reduxStoreName;
@@ -76,6 +77,10 @@ class LeftSideMenu extends React.Component {
     };
   }
 
+  componentWillReceiveProps(props) {
+    this.changeActiveLinkLabel('Test',this.context.store);
+  }
+
   componentWillMount() {
     if (this.props.content) {
       this.updateContent(this.props.content, this.context.store);
@@ -85,6 +90,11 @@ class LeftSideMenu extends React.Component {
   updateContent(content, store) {
     store.dispatch(updateContent(this.reduxUid, content));
   }
+
+  changeActiveLinkLabel(value,store) {
+  console.log('update menu current value ',value);
+      store.dispatch(changeActiveLinkLabel(this.reduxUid, value));
+    }
 
   getChildContext() {
     return {
