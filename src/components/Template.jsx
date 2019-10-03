@@ -113,6 +113,7 @@ class Template extends React.Component {
 
     this.store = store;
     this.link = Link;
+    this.oneRef = React.createRef();
 
     this.state = {
       menu: menu1
@@ -124,6 +125,7 @@ class Template extends React.Component {
       <React.Fragment>
         <React.Fragment>
           <LeftSideMenu
+            ref= {this.oneRef}
             className="menu"
             content={this.state.menu}
             classNameItemHasVisibleChild="open"
@@ -131,7 +133,8 @@ class Template extends React.Component {
         </React.Fragment>
         <BrowserRouter>
           <Switch>
-            <Route exact path="/test" component={Test} />
+          <Route exact path="/test" component={ () => <Test lsMenuRef = {this.oneRef} />} />
+            // <Route exact path="/test" component={ () => <Test lsMenuRef = {() => this.oneRef} />} />
           </Switch>
         </BrowserRouter>
       </React.Fragment>
@@ -140,6 +143,7 @@ class Template extends React.Component {
 
   getChildContext() {
     return {
+      menuRef : this.oneRef,
       store: this.store,
       developer: "kesav",
       classStore: {},
@@ -157,7 +161,8 @@ Template.childContextTypes = {
   store: PropTypes.object.isRequired,
   classStore: PropTypes.object.isRequired,
   LinkComponent: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
-    .isRequired
+    .isRequired,
+    menuRef : PropTypes.object.isRequired,
 };
 
 export default Template;

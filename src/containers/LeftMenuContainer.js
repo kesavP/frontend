@@ -7,7 +7,7 @@
 import { connect } from 'react-redux';
 import LeftMenuContainer from '../components/LeftMenuContainer';
 
-const mapStateToProps = (store, ownProps) => ({
+const mapStateToProps = (store, ownProps) => console.log('map state to props in leftmenu container') ||({
   items: (
     store[ownProps.reduxStoreName]
       .content[ownProps.reduxUid]

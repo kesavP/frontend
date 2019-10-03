@@ -8,7 +8,7 @@ import React from "react";
 import { render } from "react-dom";
 import PropTypes from "prop-types";
 import classnames from "classnames";
-import { updateContent, changeActiveLinkLabel } from "../actions/content";
+import { updateContent } from "../actions/content";
 import LeftMenuContainer from "../containers/LeftMenuContainer";
 
 let lastReduxUid = -1;
