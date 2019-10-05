@@ -1,7 +1,7 @@
 /**
  * src/main.js
- * Author: H.Alper Tuna <halpertuna@gmail.com>
- * Date: 16.09.2016
+ * Author: keshav.pheelkhana@gmail.com
+ * Date: 05.10.2019
  */
 
 import Template from './components/Template';

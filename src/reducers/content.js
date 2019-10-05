@@ -10,7 +10,7 @@ import { changeSubMenuVisibility } from '../actions/content';
 import flattenContent from './flattenContent';
 
 const item = (state, action) => {
-console.log('content reducer of type ',action.type)
+// console.log('content reducer of type ',action.type)
 if(state.id === action.id){
 console.log(state.id)
 console.log(action.id)
@@ -36,10 +36,10 @@ console.log(action.id)
   }
 };
 
-const findItem = (content, value, prop) => console.log('content reducer content ',content) || content.find(i => i[prop] === value);
+const findItem = (content, value, prop) => content.find(i => i[prop] === value);
 
 const content = (state = [], action) => {
-console.log('content reducer of type ',action.type)
+// console.log('content reducer of type ',action.type)
   switch (action.type) {
     case 'UPDATE_CONTENT': {
       return flattenContent(action.content);

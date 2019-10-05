@@ -3,7 +3,7 @@
  * Author: kesav chaitanya p
  * Date: 29.09.2019
  */
-
+/* eslint react/prop-types: 0 */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -32,7 +32,6 @@ class LeftMenuContainer extends React.Component {
 }
 
 LeftMenuContainer.defaultProps = {
-  itemId: null,
   visible: false,
 };
 
@@ -44,7 +43,6 @@ LeftMenuContainer.propTypes = {
 };
 
 LeftMenuContainer.contextTypes = {
-  developer: PropTypes.string.isRequired,
   classStore: PropTypes.object.isRequired,
 };
 

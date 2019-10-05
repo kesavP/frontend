@@ -1,3 +1,5 @@
+/* eslint react/prop-types: 0 */
+
 import agent from './agent';
 import {
   ASYNC_START,

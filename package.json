@@ -1,101 +1,79 @@
 {
-  "name": "react-metismenu",
-  "version": "1.4.0",
-  "description": "A ready / simple to use, highly customizable, updateable, ajax supported, animated and material designed menu component for React",
-  "main": "lib/index.js",
+  "name": "rexpack",
+  "version": "1.0.0",
+  "description": "Expack is the bare-bones Express and Webpack boilerplate with ES6+ babel transpilation, ESLint linting, Hot Module Reloading, and Jest test framework enabled.",
+  "main": "App.js",
   "scripts": {
-    "dev-server": "webpack-dev-server --config webpack/dev.conf.js --progress --colors --hot --inline",
-    "start": "npm run dev-server",
-    "build-demo": "rm -rf demo && mkdir demo && cp dev/{index.html,style.css} demo && webpack --config webpack/demo.conf.js --progress --colors",
-    "build-dist-js-min": "webpack --config webpack/dist-min.conf.js --progress --colors",
-    "build-dist-js": "webpack --config webpack/dist.conf.js --progress --colors",
-    "build-dist-css-min": "cleancss -o dist/react-metismenu-standart.min.css dist/react-metismenu-standart.css",
-    "build-dist-css": "lessc less/standart.less dist/react-metismenu-standart.css",
-    "build-lib": "rm -rf lib && babel src -d lib",
-    "build-dist": "rm -rf dist && npm run build-dist-js && npm run build-dist-js-min && npm run build-dist-css && npm run build-dist-css-min",
-    "build": "npm run build-lib && npm run build-dist",
-    "lint-confs": "eslint webpack __tests__ --ext=jsx --ext=js",
-    "lint-src": "eslint src --ext=jsx --ext=js",
-    "lint-dev": "eslint dev --ext=jsx --ext=js",
-    "unit-test": "jest",
+    "test": "jest",
     "coverage": "jest --coverage",
-    "coveralls": "coveralls < coverage/lcov.info",
-    "_test": "npm run lint-confs && npm run lint-src && npm run coverage",
-    "test": "npm run lint-src && npm run coverage"
+    "buildDev": "rm -rf dist && webpack --mode development --config webpack/webpack.server.config.js && webpack --mode development --config webpack/webpack.dev.config.js",
+    "buildProd": "rm -rf dist && webpack --mode production --config webpack/webpack.server.config.js && webpack --mode production --config webpack/webpack.prod.config.js",
+    "start": "node dist/server.js"
   },
-  "jest": {
-    "testRegex": "/__tests__/.*\\.jsx?$",
-    "moduleFileExtensions": [
-      "js",
-      "jsx"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alpertuna/react-metismenu.git"
-  },
-  "keywords": [
-    "react",
-    "metis",
-    "menu",
-    "component",
-    "json",
-    "collapsable",
-    "animated",
-    "smooth",
-    "customizable",
-    "ajax",
-    "material"
-  ],
-  "author": "H.Alper Tuna <halpertuna@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/alpertuna/react-metismenu/issues"
-  },
-  "homepage": "https://github.com/alpertuna/react-metismenu#readme",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-jest": "^21.2.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-es2015": "^6.24.0",
-    "babel-preset-react": "^6.23.0",
-    "clean-css-cli": "^4.1.10",
-    "coveralls": "^3.0.0",
-    "css-loader": "^0.28.7",
-    "eslint": "^4.9.0",
-    "eslint-config-airbnb": "^16.0.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.4.0",
-    "jest": "^21.2.1",
-    "less": "^3.0.0-alpha.3",
-    "less-loader": "^4.0.5",
-    "less-plugin-clean-css": "^1.5.1",
-    "react": "^16.0.0",
-    "react-addons-test-utils": "^15.6.2",
-    "react-dom": "^16.0.0",
-    "react-test-renderer": "^16.0.0",
-    "style-loader": "^0.19.0",
-    "webpack": "^3.7.1",
-    "webpack-dev-server": "^2.9.2",
-    "redux-devtools-extension": "^2.13.2",
-    "redux-logger": "^3.0.1",
-    "superagent": "^3.8.2",
-    "superagent-promise": "^1.1.0",
-    "history": "^4.6.3"
-  },
-  "peerDependencies": {
-    "react": "^0.14.9 || >=15.3.0",
-    "react-dom": "^0.14.9 || >=15.3.0"
-  },
+  "repository": "https://github.com/bengrunfeld/rexpack",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
     "react-redux": "^5.0.6",
     "redux": "^3.6.0",
-    "simple-ajax": "^2.6.0",
     "react-router-redux": "^5.0.0-alpha.6",
     "react-router-dom": "^4.1.2",
-    "react-router": "^4.1.2"
+    "react-router": "^4.1.2",
+    "express": "^4.16.4",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "peerDependencies": {
+    "react": "^0.14.9 || >=15.3.0",
+    "react-dom": "^0.14.9 || >=15.3.0"
+  },
+  "engines": {
+    "node": ">=4.3.2"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js",
+      "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
+    "babel-loader": "^8.0.0",
+    "less": "^3.0.0-alpha.3",
+    "css-loader": "^3.2.0",
+    "less-loader": "^5.0.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "eslint": "^5.14.1",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-react": "^7.12.1",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.1.0",
+    "mini-css-extract-plugin": "^0.4.5",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.3.0",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-hot-middleware": "^2.24.3",
+    "webpack-node-externals": "^1.7.2",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-logger": "^3.0.1",
+    "superagent": "^3.8.2",
+    "superagent-promise": "^1.1.0",
+    "history": "^4.6.3"
   }
 }

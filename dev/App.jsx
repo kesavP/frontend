@@ -10,8 +10,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Template from "../src";
-import Test from "../src/components/Test";
-import Users from "../src/components/Users";
 import { store, history } from "../src/store";
 import { Provider } from "react-redux";
 import { ConnectedRouter } from "react-router-redux";
@@ -19,6 +17,7 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 // Embeds styles
 import "../less/standart.less";
+import "./style.css";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -28,6 +27,5 @@ ReactDOM.render(
       </React.Fragment>
     </BrowserRouter>
   </Provider>,
-
   document.getElementById("root")
 );

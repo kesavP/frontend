@@ -3,7 +3,7 @@
  * Author: Kesav P 'keshav.pheelkhana@gmail.com'
  * Date: 22.09.2019
  */
-
+/* eslint react/prop-types: 0 */
 import React from "react";
 import { render } from "react-dom";
 import PropTypes from "prop-types";
@@ -12,7 +12,6 @@ import { updateContent,changeActiveLinkLabel } from "../actions/content";
 import LeftMenuContainer from "../containers/LeftMenuContainer";
 
 let lastReduxUid = -1;
-let reduxStoreService;
 class LeftSideMenu extends React.Component {
   constructor(props) {
     super(props);
@@ -103,7 +102,6 @@ class LeftSideMenu extends React.Component {
   }
 
   render() {
-    // console.log("props ", this.context);
     const mainWrapper = (
       <div className={this.classStore.classMainWrapper}>
         <LeftMenuContainer

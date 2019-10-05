@@ -4,7 +4,7 @@
  * Date: 28.09.2019
  */
 
-/* eslint react/forbid-prop-types: [ "error", { forbid: [ "any", "array" ] } ] */
+/* eslint react/prop-types: 0 */
 
 import React from "react";
 
@@ -139,12 +139,14 @@ class Template extends React.Component {
             classNameItemHasVisibleChild="open"
           ></LeftSideMenu>
         </React.Fragment>
+        <div className="body">
         <BrowserRouter>
           <Switch>
           <Route exact path="/test" component={ () => <Test parentLabelToogle = {this.doLabelChange} btntext = 'showTest'/>} />
             // <Route exact path="/test" component={ () => <Test lsMenuRef = {() => this.oneRef} />} />
           </Switch>
         </BrowserRouter>
+        </div>
       </React.Fragment>
     );
   }

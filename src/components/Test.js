@@ -3,6 +3,8 @@
  * Author: kesav chaitanya p
  * Date: 29.09.2019
  */
+
+ /* eslint react/prop-types: 0 */
 import React from "react";
 import PropTypes from "prop-types";
 
@@ -11,7 +13,6 @@ class Test extends React.Component {
     const { store } = this.context;
     const { parentLabelToogle } = this.props;
     return (
-      <div className="body">
         <p>
           Activate link with ref using <b> changeActiveLinkLabel </b> method{" "}
           <br />
@@ -20,10 +21,9 @@ class Test extends React.Component {
               parentLabelToogle();
             }}
           >
-            {this.props.btntext}
+            {this.props.btntext}+"nbejkdhnb"
           </button>
         </p>
-      </div>
     );
   }
 }
