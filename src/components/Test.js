@@ -16,12 +16,12 @@ class Test extends React.Component {
         <p>
           Activate link with ref using <b> changeActiveLinkLabel </b> method{" "}
           <br />
-          <button
+          <button className='Testbutton'
             onClick={() => {
               parentLabelToogle();
             }}
           >
-            {this.props.btntext}+"nbejkdhnb"
+            {this.props.btntext}
           </button>
         </p>
     );
@@ -30,7 +30,7 @@ class Test extends React.Component {
 Test.defaultProps = {};
 
 Test.propTypes = {
-  lsMenuRef: PropTypes.object.isRequired
+  // lsMenuRef: PropTypes.object.isOptional
 };
 
 Test.contextTypes = {

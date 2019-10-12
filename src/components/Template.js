@@ -137,6 +137,7 @@ class Template extends React.Component {
             content={this.state.menu}
             labelChange={this.state.labelButtonClick}
             classNameItemHasVisibleChild="open"
+            parentLabelToogle = {this.doLabelChange}
           ></LeftSideMenu>
         </React.Fragment>
         <div className="body">

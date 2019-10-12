@@ -1,7 +1,7 @@
 /**
  * @file reducers/content.js
- * @author H.Alper Tuna <halpertuna@gmail.com>
- * Date: 16.12.2016
+ * @author keshav.pheelkhana@gmail.com
+ * Date: 06.10.2019
  */
 
 /* eslint-env browser */

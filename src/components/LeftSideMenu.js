@@ -8,14 +8,14 @@ import React from "react";
 import { render } from "react-dom";
 import PropTypes from "prop-types";
 import classnames from "classnames";
-import { updateContent,changeActiveLinkLabel } from "../actions/content";
+import { updateContent, changeActiveLinkLabel } from "../actions/content";
 import LeftMenuContainer from "../containers/LeftMenuContainer";
 
 let lastReduxUid = -1;
 class LeftSideMenu extends React.Component {
   constructor(props) {
     super(props);
-    console.log('lsmenu props',props)
+    console.log("lsmenu props", props);
     lastReduxUid += 1;
     this.reduxUid = lastReduxUid;
     this.reduxStoreName = props.reduxStoreName;
@@ -77,7 +77,10 @@ class LeftSideMenu extends React.Component {
   }
 
   componentWillReceiveProps(props) {
-    this.changeActiveLinkLabel('Test',this.context.store);
+    console.log(props,'hgeyuihiurhiujghirhighrhn')
+    if (props.labelChange) {
+      this.changeActiveLinkLabel("Test", this.context.store);
+    }
   }
 
   componentWillMount() {
@@ -90,14 +93,14 @@ class LeftSideMenu extends React.Component {
     store.dispatch(updateContent(this.reduxUid, content));
   }
 
-  changeActiveLinkLabel(value,store) {
-  console.log('update menu current value ',value);
-      store.dispatch(changeActiveLinkLabel(this.reduxUid, value));
-    }
+  changeActiveLinkLabel(value, store) {
+    console.log("update menu current value ", value);
+    store.dispatch(changeActiveLinkLabel(this.reduxUid, value));
+  }
 
   getChildContext() {
     return {
-      classStore: this.classStore,
+      classStore: this.classStore
     };
   }
 
@@ -147,14 +150,14 @@ LeftSideMenu.propTypes = {
 };
 
 LeftSideMenu.childContextTypes = {
-  classStore: PropTypes.object.isRequired,
+  classStore: PropTypes.object.isRequired
 };
 
 LeftSideMenu.contextTypes = {
   developer: PropTypes.string.isRequired,
-  store : PropTypes.object.isRequired,
+  store: PropTypes.object.isRequired,
   LinkComponent: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
-    .isRequired,
-}
+    .isRequired
+};
 
 export default LeftSideMenu;
